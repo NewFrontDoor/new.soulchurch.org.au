@@ -1,5 +1,5 @@
 import React from 'react';
-import slider from '../../assets/img/slider.png';
+import slider from '../../assets/img/slider.jpg';
 //import Carousel from '../carousel/carousel';
 //import Welcome from './welcome';
 import HomePageContent from './home-page-content';

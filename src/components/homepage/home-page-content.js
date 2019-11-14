@@ -6,7 +6,7 @@ import WhereToFindUs from './where-to-find-us';
 import UpcomingEvents from './upcoming-events';
 
 const churchDeets = {
-  churchName: 'Sample Church',
+  churchName: 'Soul Church',
   streetAddress: '123 Big Walk Way',
   city: 'Small town',
   state: 'WA'

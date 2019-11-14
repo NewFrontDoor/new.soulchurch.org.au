@@ -7,7 +7,7 @@ export default function WhereToFindUs({
 }) {
   return (
     <section>
-      {/*<h2>Where to Find Us</h2>
+      <h2>Where to Find Us</h2>
 
       <Map
         location={{ lat: -31.9716063, lng: 115.8918229 }}
@@ -18,7 +18,7 @@ export default function WhereToFindUs({
       <p>{streetAddress}</p>
       <p>
         {city}, {state}
-      </p>*/}
+      </p>
     </section>
   );
 }
