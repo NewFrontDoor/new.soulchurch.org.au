@@ -16,9 +16,6 @@ const Inner = styled.div`
 const Title = styled.h1`
   font-size: 1.6em;
   margin: 0;
-  color: #ef3b24;
-  text-transform: uppercase;
-  font-family: Cabin,sans-serif;
 `;
 
 const Breadcrumbs = styled.div`

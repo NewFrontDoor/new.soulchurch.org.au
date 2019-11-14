@@ -37,25 +37,24 @@ export default function ContactUs() {
       <TitleBreadcrumb title="Contact Us" breadcrumbs={[['Home', '/']]} />
       <ContentWrapper>
         <p>
-          If you have any questions about the Vision 100 Network or would like more information on how to get involved, please contact us - we would love to hear from you.
+          If you have any questions about Soul Church or would like more information on how to get involved, please contact us - we would love to hear from you.
         </p>
 
         <Grid>
           <div>
             <h3>Address</h3>
             <p>
-              The Vision 100 Network<br />
-              PO Box 5006<br />
-              University of Tasmania LPO<br />
-              Sandy Bay, TAS, 7005
+             
             </p>
           </div>
           <div>
             <h3>Contact Us</h3>
             <p>
-              <b>Facebook:</b> &nbsp;<a href="https://www.facebook.com/Vision100Resources/" target="_blank" rel="noreferrer noopener">/Vision100Resources</a>
+              <b>Facebook:</b> &nbsp;<a href="https://www.facebook.com/soulchurch/" target="_blank" rel="noreferrer noopener">/SoulChurch</a>
               <br />
-              <b>Email:</b>&nbsp;<a href="mailto:info@vision100.org">info@vision100.org</a>
+              <b>Email:</b>&nbsp;<a href="mailto:info@soulchurch.org.au">info@soulchurch.org.au</a>
+              <br />
+              <b>Instagram:</b>&nbsp;<a href="https://www.instagram.com/soul_church/" target="_blank" rel="noreferrer noopener">@soul_church</a>
             </p>
           </div>
         </Grid>

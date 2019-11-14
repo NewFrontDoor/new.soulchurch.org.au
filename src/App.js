@@ -35,7 +35,7 @@ const globalStyles = css`
     -moz-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    color: #e74c3c;
+    color: #cf9901;
   }
 
   a:hover,

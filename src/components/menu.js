@@ -6,7 +6,7 @@ import SubmenuBlock from './submenu-block';
 
 const theme = {
   colors: {
-    highlight: '#ef3b24'
+    highlight: '#9a8f7e'
   }
 };
 

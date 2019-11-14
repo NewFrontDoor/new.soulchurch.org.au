@@ -54,7 +54,7 @@ export default function Sermons({ globalSermons, setGlobalSermons }) {
       />
       <ContentWrapper width="wide">
         <p>
-          Here you'll find all the latest talks from the Vision 100 Network. Feel free to browse around and check out the
+          Here you'll find all the latest sermons from Soul Church. Feel free to browse around and check out the
           different talks.
         </p>
         <p>

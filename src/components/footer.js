@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
-import { IoIosPin, IoIosMail, IoLogoFacebook, IoLogoTwitter } from 'react-icons/io';
+import { IoIosPin, IoIosMail, IoLogoFacebook, IoLogoTwitter, IoLogoInstagram } from 'react-icons/io';
+import { FaRegPlayCircle } from 'react-icons/fa'
 
 const Grid = styled('div')`
   display: grid;
@@ -33,7 +34,7 @@ export default function Footer() {
         <div css={centered}>
           <IoIosPin
             style={{
-              stroke: 'white',
+              stroke: '#cf9901',
               strokeWidth: '20px',
               fill: 'none',
               width: '2em',
@@ -42,16 +43,14 @@ export default function Footer() {
             }}
           />
           <p>
-            The Vision 100 Network<br />
-            PO Box 5006<br />
-            University of Tasmania LPO<br />
-            Sandy Bay, TAS, 7005
+            <a href="#">Sundays @ 4.30pm - </a> 5 Lefroy Street, North Hobart<br/>
+            <a href="#">Office - </a> 67 Federal Street, North Hobart
           </p>
         </div>
         <div css={centered}>
           <IoIosMail
             style={{
-              stroke: 'white',
+              stroke: '#cf9901',
               strokeWidth: '20px',
               fill: 'none',
               width: '2em',
@@ -60,23 +59,50 @@ export default function Footer() {
             }}
           />
           <p>
-            <a href="mailto:info@vision100.org">info@vision100.org</a>
+            <a href="mailto:info@soulchurch.org.au">info@soulchurch.org.au</a>
             <br />
+            <a href="mailto:elders@soulchurch.org.au">elders@soulchurch.org.au</a>
           </p>
         </div>
         <div css={centered}>
-          <IoLogoFacebook
+        <IoLogoInstagram
             style={{
-              stroke: 'white',
+              stroke: '#cf9901',
               strokeWidth: '20px',
               fill: 'none',
               width: '2em',
               height: '2em',
-              marginBottom: '20px'
+              marginBottom: '20px',
+            }}
+          />
+          <IoLogoFacebook
+            style={{
+              stroke: '#cf9901',
+              strokeWidth: '20px',
+              fill: 'none',
+              width: '2em',
+              height: '2em',
+              marginBottom: '20px',
+              marginLeft: '10px'
+            }}
+          />
+          <FaRegPlayCircle
+            style={{
+              stroke: '#cf9901',
+              strokeWidth: '20px',
+              fill: 'none',
+              width: '2em',
+              height: '2em',
+              marginBottom: '20px',
+              marginLeft: '11px'
             }}
           />
           <p>
-            <a href="http://facebook.com/Vision100Resources" target="_blank" rel="noopener noreferrer">facebook.com/Vision100Resources</a>
+            <a href="https://www.instagram.com/soul_church/" target="_blank" rel="noopener noreferrer">@soul_church</a>
+            <br />
+            <a href="http://facebook.com/soulchurch" target="_blank" rel="noopener noreferrer">facebook.com/SoulChurch</a>
+            <br />
+            <a href="https://podcasts.apple.com/us/podcast/soul-church/id1389648314" target="_blank" rel="noopener noreferrer">Subscribe to our podcast</a>
             <br />
           </p>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import logo from '../assets/img/Logo.svg';
+import logo from '../assets/img/Logo.png';
 import Menu from './menu';
 
 const menudata = require('../sample-data/menu-items.json');
