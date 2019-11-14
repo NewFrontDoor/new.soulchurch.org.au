@@ -1,0 +1,91 @@
+{
+  "name": "summerleas-template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "@newfrontdoor/calendar": "^1.4.8",
+    "@react-google-maps/api": "^1.6.0",
+    "embla-carousel-react": "^1.0.3",
+    "emotion-theming": "^10.0.17",
+    "final-form": "^4.18.5",
+    "isomorphic-fetch": "^2.2.1",
+    "ky": "^0.13.0",
+    "ky-universal": "^0.3.0",
+    "mineral-ui": "^0.58.0",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-final-form": "^6.3.0",
+    "react-icons": "^3.7.0",
+    "react-responsive-audio-player": "^1.4.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.1.1",
+    "typeface-lato": "0.0.75",
+    "typeface-roboto-slab": "0.0.72"
+  },
+  "devDependencies": {
+    "eslint-config-xo-react": "^0.20.0",
+    "eslint-plugin-emotion": "^10.0.14",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2",
+    "xo": "^0.24.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "xo": {
+    "extends": [
+      "xo-react",
+      "plugin:jest/recommended"
+    ],
+    "parser": "babel-eslint",
+    "prettier": true,
+    "space": true,
+    "plugins": [
+      "emotion",
+      "jest"
+    ],
+    "rules": {
+      "emotion/jsx-import": "error",
+      "emotion/no-vanilla": "error",
+      "emotion/import-from-emotion": "error",
+      "emotion/styled-import": "error"
+    },
+    "overrides": [
+      {
+        "files": "**/__tests__/**/*.js",
+        "rules": {
+          "import/no-unassigned-import": [
+            "error",
+            {
+              "allow": [
+                "@testing-library/jest-dom/extend-expect"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "eslint": {
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  }
+}

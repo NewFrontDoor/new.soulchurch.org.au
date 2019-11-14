@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Elders",
+    "people": [
+      {
+        "name": "Elder 1",
+        "img": "Male",
+        "title": "Pastor"
+      },
+      {
+        "name": "Elder 2",
+        "img": "Male",
+        "title": "Elder"
+      },
+      {
+        "name": "Elder 3",
+        "img": "Male",
+        "title": "Elder"
+      },
+      {
+        "name": "Elder 4",
+        "img": "Male",
+        "title": "Elder"
+      }
+    ]
+  },
+  {
+    "title": "Deacons",
+    "people": [
+      {
+        "name": "Deacon 1",
+        "img": "Male",
+        "title": "Deacon"
+      },
+      {
+        "name": "Deacon 2",
+        "img": "Male",
+        "title": "Deacon"
+      },
+      {
+        "name": "Deacon 3",
+        "img": "Male",
+        "title": "Deacon"
+      },
+      {
+        "name": "Deacon 4",
+        "img": "Male",
+        "title": "Deacon"
+      }
+    ]
+  }
+]

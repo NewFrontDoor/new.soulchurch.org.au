@@ -1,0 +1,97 @@
+{
+  "items": [
+    {
+      "title": "About",
+      "submenu": {
+        "blurb": "Learn more about us...",
+        "menus": [
+          {
+            "header": "",
+            "items": [
+              {
+                "name": "Who is Vision 100",
+                "url": "WhoIsVision100"
+              },
+              {
+                "name": "Beliefs & Values",
+                "url": "BeliefsAndValues"
+              },
+              {
+                "name": "Contact Us",
+                "url": "Contact"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Events",
+      "submenu": {
+        "blurb": "Find out what is happening...",
+        "menus": [
+          {
+            "header": "",
+            "items": [
+              {
+                "name": "Key Events",
+                "url": "KeyEvents"
+              },
+              {
+                "name": "Apprentice Training",
+                "url": "ApprenticeTraining"
+              },
+              {
+                "name": "Calendar",
+                "url": "Calendar"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "Sermons",
+      "name": "Sermons"
+    },
+    {
+      "title": "Resources",
+      "submenu": {
+        "blurb": "Please use any of our resources that you find useful...",
+        "menus": [
+          {
+            "header": "",
+            "items": [
+              {
+                "name": "Newsletter",
+                "url": "Newsletter"
+              },
+              {
+                "name": "Podcast",
+                "url": "Podcast"
+              },
+              {
+                "name": "Articles",
+                "url": "Articles"
+              }
+            ]
+          },
+          {
+            "header": "",
+            "items": [
+              {
+                "name": "New Front Door IT",
+                "externalLink": true,
+                "url": "https://newfrontdoor.org/"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "Support",
+      "name": "Support"
+    }
+  ]
+}
