@@ -2,23 +2,28 @@
   "items": [
     {
       "slug": "about",
-      "name": "About Us"
+      "name": "About Us",
+      "subtext": "get to know us"
     },
     {
       "slug": "ministries",
-      "name": "Ministries"
+      "name": "Ministries",
+      "subtext": "get involved"
     },
     {
       "slug": "events",
-      "name": "Events"
+      "name": "Events",
+      "subtext": "join us"
     },
     {
-      "slug": "give",
-      "name": "Give"
+      "slug": "support",
+      "name": "Support",
+      "subtext": "give online"
     },
     {
       "slug": "contact",
-      "name": "Contact"
+      "name": "Contact",
+      "subtext": "get in touch"
     }
   ]
 }

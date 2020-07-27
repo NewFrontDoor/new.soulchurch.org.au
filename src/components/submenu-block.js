@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Wrapper = styled('div')`
   position: absolute;
@@ -10,7 +10,7 @@ const Wrapper = styled('div')`
   }
   @media (max-width: 580px) {
     max-width: 90%;
-    grid-template-columns: repeat(1, 1fr)
+    grid-template-columns: repeat(1, 1fr);
   }
   min-width: 200px;
   width: 750px;
@@ -71,11 +71,12 @@ const Anchor = styled(Link)`
 `;
 
 const ExternalLink = styled('a')`
-font-size: 14px;
-line-height: 20px;
-padding: 5px 0;`;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 0;
+`;
 
-export default function SubmenuBlock({ submenu: { blurb, menus }, visible }) {
+export default function SubmenuBlock({submenu: {blurb, menus}, visible}) {
   return (
     <Wrapper
       columns={menus.length >= 2 ? menus.length + 1 : 3}
@@ -88,7 +89,17 @@ export default function SubmenuBlock({ submenu: { blurb, menus }, visible }) {
             <Header>{list.header}</Header>
             {list.items.map(item => (
               <li>
-                {item.externalLink === true ? <ExternalLink href={item.url} target="_blank" rel="noreferrer noopener">{item.name}</ExternalLink> : <Anchor to={`/${item.url}`}>{item.name}</Anchor>}
+                {item.externalLink === true ? (
+                  <ExternalLink
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {item.name}
+                  </ExternalLink>
+                ) : (
+                  <Anchor to={`/${item.url}`}>{item.name}</Anchor>
+                )}
               </li>
             ))}
           </ul>

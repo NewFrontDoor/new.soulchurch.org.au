@@ -18,18 +18,20 @@ const apiRoute = {
 };
 
 export async function fetchDrupalData(type, obj) {
-  const { filters, ...noFilters } = obj;
+  const {filters, ...noFilters} = obj;
   let seriesFilter;
   const filterSet = obj.hasOwnProperty('filters')
     ? obj.filters.map(filter => {
-      // if (Object.values(filter)[0] !== '') { }
-      return {
-        [`filters[${Object.keys(filter)[0]}]`]: `${Object.values(filter)[0]}`
-      };
-    })
+        // If (Object.values(filter)[0] !== '') { }
+        return {
+          [`filters[${Object.keys(filter)[0]}]`]: `${Object.values(filter)[0]}`
+        };
+      })
     : '';
   if (type === 'seriesFilter') {
-    seriesFilter = noFilters.hasOwnProperty('nid') ? { [`filters[sermonSeries]`]: noFilters.nid } : '';
+    seriesFilter = noFilters.hasOwnProperty('nid')
+      ? {[`filters[sermonSeries]`]: noFilters.nid}
+      : '';
   }
 
   const flatParams = Object.assign(...filterSet, noFilters, seriesFilter);

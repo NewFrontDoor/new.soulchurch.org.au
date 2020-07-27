@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+/** @jsx jsx */
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-import logo from '../assets/img/Logo.png';
+import {jsx} from 'theme-ui';
+import {Link} from 'react-router-dom';
+import {ReactComponent as Logo} from '../assets/img/logo2.svg';
+import theme from '../theme';
 import Menu from './menu';
-
-const menudata = require('../sample-data/menu-items.json');
 
 const Header = styled('header')`
   display: flex;
@@ -13,7 +14,9 @@ const Header = styled('header')`
   margin-right: auto;
   justify-content: space-around;
   flex-wrap: wrap;
+  background-color: ${props => props.theme.colors.primary};
   align-items: flex-end;
+  height: 130px;
 `;
 
 const MenuButton = styled('button')`
@@ -33,28 +36,21 @@ const MenuButton = styled('button')`
   }
 `;
 
-const Logo = styled(Link)`
-  flex: 0 1 auto;
-`;
-
-const LogoImg = styled('img')`
-max-height: 150px;`
-
-const MenuWrapper = styled(Menu)`
-  flex: 0 1 auto;
-`;
-
-export default function Navigation() {
+export default function Navigation({menuData}) {
   const [menuVisible, toggleMenuVisible] = useState(false);
   return (
-    <Header>
-      <Logo to="/">
-        <LogoImg src={logo} alt="Home" />
-      </Logo>
+    <Header theme={theme}>
+      <Link sx={{flex: '0 1 auto', height: '110px'}} to="/">
+        <Logo sx={{height: '80px', fill: 'white'}} />
+      </Link>
       <MenuButton type="button" onClick={() => toggleMenuVisible(!menuVisible)}>
         MENU
       </MenuButton>
-      <MenuWrapper items={menudata.items} isVisible={menuVisible} />
+      <Menu
+        sx={{flex: '0 1 auto'}}
+        items={menuData.menuitems}
+        isVisible={menuVisible}
+      />
     </Header>
   );
 }

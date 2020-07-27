@@ -1,132 +1,155 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Global, css } from '@emotion/core';
-import Navigation from './components/navigation';
-import HomePageWrapper from './components/homepage/home-page-wrapper';
-import OtherPageWrapper from './components/other-page-wrapper';
-import Footer from './components/footer';
-import { fetchDrupalData } from './utils/fetch-functions';
+import React, {useState, useEffect} from 'react';
+import {ThemeProvider} from 'theme-ui';
+import ky from 'ky-universal';
+import Main from './main';
+import sanity from './lib/sanity';
+import theme from './theme';
 
-require('typeface-lato');
-require('typeface-roboto-slab');
+const api = ky.create({
+  headers: {
+    'Content-Type': 'application/json',
+    authorization: 'Basic MGFBdnVYUnh6dVE5dTZiQzF0aFo1OU9JZkUxN2JsYlk6'
+  },
+  mode: 'cors',
+  method: 'post',
+  prefixUrl: 'https://api.elvanto.com/v1'
+});
 
-const globalStyles = css`
-  
-  html, body {
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    overflow-x: hidden; 
-  }
-
-  body {
-    color: #777;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    text-rendering: optimizeLegibility;
-    word-wrap: break-word;
-    font-style: normal;
-    width: 100%;
-  }
-
-  a {
-    text-decoration: none;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    color: #cf9901;
-  }
-
-  a:hover,
-  a:focus,
-  a:active {
-    color: #2b2b2b;
-    text-decoration: none;
-  }
-
-  b,
-  strong {
-    font-weight: 700;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 300;
-  }
+const mainQuery = `
+*[_type == "main"][0] {
+  content[]{
+    description,
+    heading,
+    mobile,
+    type,
+    _key
+  },
+	hero
+}
 `;
 
+const menuQuery = `
+*[_type == "main"][0] {
+  menuitems[]{
+    "subtext": description,
+    "title": text,
+    childpages[]->{
+      title,
+      slug,
+      'pathname': '/' + slug.current
+    }
+  }
+}
+`;
+
+const pagesQuery = `
+*[_type == "page"] {
+  ...,
+    body[]{
+      ...,
+      _type == 'reference' => @-> {
+        ...,
+        blocks[] {
+          ...,
+          _type == 'reference' => @ ->,
+          "image": image.asset->url,
+          "link": link[0].url
+        }
+      },
+      markDefs[] {
+        ...,
+        _type == 'internalLink' => {
+            'slug': @.reference->slug.current
+        }
+      }
+    },
+    mainImage,
+    'id': _id,
+  'pathname': '/' + slug.current
+}
+`;
+
+const sermonQuery = `
+  *[_type == "sermons"] {
+    "key": _id,
+    title,
+    _id,
+    preachedDate,
+    "preacher": preacher->name,
+    "series": series->title,
+    passage,
+    "image": series->image,
+    "url": "https://s3.us-west-2.amazonaws.com/sermons.onewaymargate.org/" + file,
+    "slug": slug.current
+  } | order(preachedDate desc)
+  `;
+
 export default function App() {
-  const [globalSermons, setGlobalSermons] = useState(null);
-  const [pagesData, setpagesData] = useState();
-  const [pagesFetched, setPagesFetched] = useState(false);
-  const [newslettersFetched, setnewslettersFetched] = useState(false);
-  const [newslettersData, setNewslettersData] = useState();
-  const [upcomingEventsDataFetched, setUpcomingEventDataFetched] = useState(false);
-  const [upcomingEventsData, setUpcomingEventsData] = useState();
+  const [mainData, setMainData] = useState();
+  const [mainFetch, setMainFetch] = useState();
+  const [pagesData, setPagesData] = useState();
+  const [events, setEvents] = useState();
 
   useEffect(() => {
-    if (pagesFetched === false) {
-      fetchDrupalData('all_pages', {}).then(response => {
-        var mapped = response.map(item => ({ [item.page_title.toLowerCase()]: item }));
-        var mappedObj = Object.assign({}, ...mapped);
-        setpagesData(mappedObj);
-        setPagesFetched(true);
-      });
+    async function fetchData() {
+      const result = await api
+        .post('calendar/events/getAll.json', {
+          json: {
+            page: 1,
+            page_size: 10,
+            start: new Date().toISOString().split('T')[0],
+            end: new Date(new Date().getFullYear() + 1, 11, 1)
+              .toISOString()
+              .split('T')[0]
+          }
+        })
+        .json();
+      console.log(result);
+      setEvents(result.events.event);
     }
-  }, [pagesFetched, pagesData]);
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    if (newslettersFetched === false) {
-      fetchDrupalData('newsletter', {}).then(response => {
-        setNewslettersData(response);
-        setnewslettersFetched(true);
-      });
+    const allQuery = `
+      {
+        'menuData': ${menuQuery},
+        'mainData': ${mainQuery},
+        'sermonData': ${sermonQuery}
+      }
+    `;
+
+    async function fetchData() {
+      const result = await sanity.fetch(allQuery);
+      setMainData(result);
+      setMainFetch(true);
     }
-  }, [newslettersFetched, newslettersData]);
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    if (upcomingEventsDataFetched === false) {
-      fetchDrupalData('upcomingEvents', {}).then(response => {
-        setUpcomingEventsData(response);
-        setUpcomingEventDataFetched(true);
-      });
+    async function fetchData() {
+      const result = await sanity.fetch(pagesQuery);
+      const arrayToObject = array =>
+        array.reduce((obj, item) => {
+          obj[item.slug.current] = item;
+          return obj;
+        }, {});
+
+      const pagesObject = arrayToObject(result);
+      setPagesData(pagesObject);
     }
-  }, [upcomingEventsDataFetched, upcomingEventsData]);
 
+    fetchData();
+  }, [mainFetch]);
 
-  return pagesFetched === true ? (
-    <Router>
-      <Global styles={globalStyles} />
-      <Route path="*" component={Navigation} />
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <HomePageWrapper
-            globalSermons={globalSermons}
-            setGlobalSermons={setGlobalSermons}
-            upcomingEventsData={upcomingEventsData}
-          />
-        )}
-      />
-      <Route
-        path="/:path"
-        render={() => (
-          <OtherPageWrapper
-            globalSermons={globalSermons}
-            setGlobalSermons={setGlobalSermons}
-            pagesData={pagesData}
-            newslettersData={newslettersData}
-          />
-        )}
-      />
-      <Route path="*" component={Footer} />
-    </Router>
-  ) : ('');
+  return mainFetch === true ? (
+    <ThemeProvider theme={theme}>
+      <Main mainData={mainData} pagesData={pagesData} events={events} />
+    </ThemeProvider>
+  ) : (
+    ''
+  );
 }

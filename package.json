@@ -1,39 +1,45 @@
 {
-  "name": "summerleas-template",
+  "name": "soul-church",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.17",
-    "@emotion/styled": "^10.0.17",
-    "@newfrontdoor/calendar": "^1.4.8",
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@mdx-js/react": "^1.5.1",
+    "@newfrontdoor/audio-player": "^0.1.6",
+    "@newfrontdoor/calendar": "^2.2.0",
     "@react-google-maps/api": "^1.6.0",
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "^0.146.0",
+    "@theme-ui/components": "^0.2.50",
     "embla-carousel-react": "^1.0.3",
-    "emotion-theming": "^10.0.17",
+    "emotion-theming": "^10.0.19",
     "final-form": "^4.18.5",
     "isomorphic-fetch": "^2.2.1",
-    "ky": "^0.13.0",
+    "ky": "^0.16.1",
     "ky-universal": "^0.3.0",
     "mineral-ui": "^0.58.0",
     "normalize.css": "^8.0.1",
+    "polished": "^3.4.2",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-final-form": "^6.3.0",
-    "react-icons": "^3.7.0",
+    "react-icons": "^3.8.0",
     "react-responsive-audio-player": "^1.4.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.1",
-    "typeface-lato": "0.0.75",
-    "typeface-roboto-slab": "0.0.72"
+    "react-router-dom": "^5.1.2",
+    "react-router-hash-link": "^1.2.2",
+    "react-scripts": "^3.3.0",
+    "theme-ui": "^0.2.49"
   },
   "devDependencies": {
     "eslint-config-xo-react": "^0.20.0",
     "eslint-plugin-emotion": "^10.0.14",
-    "eslint-plugin-jest": "^22.17.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "prettier": "^1.18.2",
-    "xo": "^0.24.0"
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "prettier": "^1.19.1",
+    "xo": "^0.25.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -64,22 +70,7 @@
       "emotion/no-vanilla": "error",
       "emotion/import-from-emotion": "error",
       "emotion/styled-import": "error"
-    },
-    "overrides": [
-      {
-        "files": "**/__tests__/**/*.js",
-        "rules": {
-          "import/no-unassigned-import": [
-            "error",
-            {
-              "allow": [
-                "@testing-library/jest-dom/extend-expect"
-              ]
-            }
-          ]
-        }
-      }
-    ]
+    }
   },
   "eslint": {
     "settings": {

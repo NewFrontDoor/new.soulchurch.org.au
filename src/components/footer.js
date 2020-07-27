@@ -1,8 +1,15 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
-import { IoIosPin, IoIosMail, IoLogoFacebook, IoLogoTwitter, IoLogoInstagram } from 'react-icons/io';
-import { FaRegPlayCircle } from 'react-icons/fa'
+import {css} from '@emotion/core';
+import {
+  IoIosPin,
+  IoIosMail,
+  IoLogoFacebook,
+  IoLogoTwitter,
+  IoLogoInstagram
+} from 'react-icons/io';
+import {FaRegPlayCircle} from 'react-icons/fa';
+import {jsx, Styled, useThemeUI} from 'theme-ui';
 
 const Grid = styled('div')`
   display: grid;
@@ -28,58 +35,63 @@ const centered = css({
 });
 
 export default function Footer() {
+
+  const {theme} = useThemeUI()
   return (
     <section>
       <Grid>
         <div css={centered}>
           <IoIosPin
             style={{
-              stroke: '#cf9901',
+              stroke: 'none',
               strokeWidth: '20px',
-              fill: 'none',
+              fill: theme.colors.accent,
               width: '2em',
               height: '2em',
               marginBottom: '20px'
             }}
           />
-          <p>
-            <a href="#">Sundays @ 4.30pm - </a> 5 Lefroy Street, North Hobart<br/>
-            <a href="#">Office - </a> 67 Federal Street, North Hobart
-          </p>
+          <Styled.p>
+            <Styled.a href="#">Sundays @ 4.30pm</Styled.a> - 5 Lefroy Street, North Hobart
+            <br />
+            <Styled.a href="#">Office</Styled.a> - 67 Federal Street, North Hobart
+          </Styled.p>
         </div>
         <div css={centered}>
           <IoIosMail
             style={{
-              stroke: '#cf9901',
+              stroke: 'none',
               strokeWidth: '20px',
-              fill: 'none',
+              fill: theme.colors.accent,
               width: '2em',
               height: '2em',
               marginBottom: '20px'
             }}
           />
-          <p>
-            <a href="mailto:info@soulchurch.org.au">info@soulchurch.org.au</a>
+          <Styled.p>
+            <Styled.a href="mailto:info@soulchurch.org.au">info@soulchurch.org.au</Styled.a>
             <br />
-            <a href="mailto:elders@soulchurch.org.au">elders@soulchurch.org.au</a>
-          </p>
+            <Styled.a href="mailto:elders@soulchurch.org.au">
+              elders@soulchurch.org.au
+            </Styled.a>
+          </Styled.p>
         </div>
         <div css={centered}>
-        <IoLogoInstagram
+          <IoLogoInstagram
             style={{
-              stroke: '#cf9901',
+              stroke: 'none',
               strokeWidth: '20px',
-              fill: 'none',
+              fill: theme.colors.accent,
               width: '2em',
               height: '2em',
-              marginBottom: '20px',
+              marginBottom: '20px'
             }}
           />
           <IoLogoFacebook
             style={{
-              stroke: '#cf9901',
+              stroke: 'none',
               strokeWidth: '20px',
-              fill: 'none',
+              fill: theme.colors.accent,
               width: '2em',
               height: '2em',
               marginBottom: '20px',
@@ -88,42 +100,60 @@ export default function Footer() {
           />
           <FaRegPlayCircle
             style={{
-              stroke: '#cf9901',
+              stroke: 'none',
               strokeWidth: '20px',
-              fill: 'none',
+              fill: theme.colors.accent,
               width: '2em',
               height: '2em',
               marginBottom: '20px',
               marginLeft: '11px'
             }}
           />
-          <p>
-            <a href="https://www.instagram.com/soul_church/" target="_blank" rel="noopener noreferrer">@soul_church</a>
+          <Styled.p>
+            <Styled.a
+              href="https://www.instagram.com/soul_church/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @soul_church
+            </Styled.a>
             <br />
-            <a href="http://facebook.com/soulchurch" target="_blank" rel="noopener noreferrer">facebook.com/SoulChurch</a>
+            <Styled.a
+              href="http://facebook.com/soulchurch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              facebook.com/SoulChurch
+            </Styled.a>
             <br />
-            <a href="https://podcasts.apple.com/us/podcast/soul-church/id1389648314" target="_blank" rel="noopener noreferrer">Subscribe to our podcast</a>
+            <Styled.a
+              href="https://podcasts.apple.com/us/podcast/soul-church/id1389648314"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Subscribe to our podcast
+            </Styled.a>
             <br />
-          </p>
+          </Styled.p>
         </div>
       </Grid>
       <MetaGrid>
         <div>
-          <p>
+          <Styled.p>
             Website built and maintained by{' '}
-            <a href="http://newfrontdoor.org">New Front Door</a>
-          </p>
+            <Styled.a href="http://newfrontdoor.org">New Front Door</Styled.a>
+          </Styled.p>
         </div>
-        <div css={{ textAlign: 'right' }}>
-          <a href="https://www.facebook.com/NewFrontDoorIT/">
-            <IoLogoFacebook style={{ fill: '#f0f0f0' }} />
-          </a>
-          <a href="https://twitter.com/NewFrontDoorIT">
-            <IoLogoTwitter style={{ fill: '#f0f0f0' }} />
-          </a>
-          <a href="mailto:contactus@newfrontdoor.org">
-            <IoIosMail style={{ fill: '#f0f0f0' }} />
-          </a>
+        <div css={{textAlign: 'right'}}>
+          <Styled.a href="https://www.facebook.com/NewFrontDoorIT/">
+            <IoLogoFacebook style={{fill: theme.colors.accent}} />
+          </Styled.a>
+          <Styled.a href="https://twitter.com/NewFrontDoorIT">
+            <IoLogoTwitter style={{fill: theme.colors.accent}} />
+          </Styled.a>
+          <Styled.a href="mailto:contactus@newfrontdoor.org">
+            <IoIosMail style={{fill: theme.colors.accent}} />
+          </Styled.a>
         </div>
       </MetaGrid>
     </section>

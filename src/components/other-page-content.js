@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleBreadcrumb from './pages/title-breadcrumb';
+import TitleBreadcrumb from '../pages/title-breadcrumb';
 import ContentWrapper from './content-wrapper';
 
 export default function OtherPageContent({title, category}) {
